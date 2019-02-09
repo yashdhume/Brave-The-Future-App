@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brave_the_future/ui/ProjectPageUI/Building.dart';
+import 'package:brave_the_future/ui/ProjectPageUI/GetBuildingInfo.dart';
 
 class ProjectRow extends StatelessWidget {
   final Building building;
@@ -7,16 +8,19 @@ class ProjectRow extends StatelessWidget {
   ProjectRow(this.building);
 
   Widget build(BuildContext context) {
-    final buildingContainer = new Container(
-      margin: new EdgeInsets.only(top:60, ),
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: new Image(
-          image: new AssetImage(building.image),
-          //width: 200,
-        ),
-      )
-    );
+    final buildingContainer = new Hero(
+        tag: "building-hero-${building.id}",
+        child: new Container(
+            margin: new EdgeInsets.only(
+              top: 60,
+            ),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: new Image(
+                image: new AssetImage(building.image),
+                //width: 200,
+              ),
+            )));
     final projectCard = new Container(
       constraints: new BoxConstraints.expand(),
       height: 124.0,
@@ -46,14 +50,19 @@ class ProjectRow extends StatelessWidget {
       ),
     );
 
-    return new Container(
-      margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-      child: new Stack(
-        children: <Widget>[
-          projectCard,
-          buildingContainer,
-        ],
-      ),
-    );
+    return new GestureDetector(
+        onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => BuildingInfoPage(building))),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+          child: new Stack(
+            children: <Widget>[
+              projectCard,
+              buildingContainer,
+            ],
+          ),
+        ));
   }
 }

@@ -51,6 +51,7 @@ flutter:
 
   assets:
     - assets/pictures/building1.png
+    - assets/pictures/building1Full.jpg
     - assets/pictures/SIRC.png
     - assets/pictures/ACE.png
 
