@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:brave_the_future/ui/ProjectPageUI/Building.dart';
 import 'package:brave_the_future/ui/ProjectPageUI/GetBuildingInfo.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProjectRow extends StatelessWidget {
   final Building building;
+  final bool horizontal;
 
-  ProjectRow(this.building);
+  ProjectRow(this.building, {this.horizontal = true});
+
+  ProjectRow.vertical(this.building) : horizontal = false;
 
   Widget build(BuildContext context) {
     final buildingContainer = new Hero(
@@ -14,6 +18,9 @@ class ProjectRow extends StatelessWidget {
             margin: new EdgeInsets.only(
               top: 60,
             ),
+            alignment: horizontal
+                ? FractionalOffset.centerLeft
+                : FractionalOffset.center,
             child: Align(
               alignment: Alignment.bottomLeft,
               child: new Image(
@@ -23,8 +30,9 @@ class ProjectRow extends StatelessWidget {
             )));
     final projectCard = new Container(
       constraints: new BoxConstraints.expand(),
-      height: 124.0,
+      height: 120.0,
       margin: new EdgeInsets.only(left: 46.0),
+      padding: new EdgeInsets.all(5),
       decoration: new BoxDecoration(
         color: new Color(0xffb0077CA),
         shape: BoxShape.rectangle,
@@ -45,7 +53,63 @@ class ProjectRow extends StatelessWidget {
           ),
           new Text(
             building.name,
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Franklin',
+                fontWeight: FontWeight.w600,
+                fontSize: 15.0),
           ),
+          new Container(
+              //alignment: Alignment.centerRight,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  new SizedBox(width: 10.0),
+                  new Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        new Icon(
+                          FontAwesomeIcons.map,
+                          size: 12,
+                        ),
+                        new Text(
+                          building.location,
+                          style: TextStyle(
+                              fontFamily: 'Franklin',
+                              color: const Color(0xffb6b2df),
+                              fontSize: 9.0,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        new SizedBox(width: 10.0),
+                        new Icon(
+                          FontAwesomeIcons.calendar,
+                          size: 12,
+                        ),
+                        new Text(
+                          building.open,
+                          style: TextStyle(
+                              fontFamily: 'Franklin',
+                              color: const Color(0xffb6b2df),
+                              fontSize: 9.0,
+                              fontWeight: FontWeight.w400),
+                        ),
+                    new SizedBox(width: 10.0),
+                    new Icon(
+                      FontAwesomeIcons.building,
+                      size: 12,
+                    ),
+                    new Text(
+                      building.squareMeter,
+                      style: TextStyle(
+                          fontFamily: 'Franklin',
+                          color: const Color(0xffb6b2df),
+                          fontSize: 9.0,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ])
+                ],
+              )),
         ],
       ),
     );

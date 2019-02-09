@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:brave_the_future/ui/ProjectPageUI/Building.dart';
+import 'package:brave_the_future/ui/ProjectPageUI/BuildingInfo.dart';
 
 class BuildingInfoPage extends StatelessWidget {
   final Building building;
-
   BuildingInfoPage(this.building);
   @override
   Widget build(BuildContext context) {
