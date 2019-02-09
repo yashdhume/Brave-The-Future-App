@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class GradientAppBar extends StatelessWidget {
   final String title;
 
@@ -11,9 +10,20 @@ class GradientAppBar extends StatelessWidget {
         .padding
         .top;
     return new Container(
-      height: 66,
+      height: statusBarHeight+66,
       padding:  new EdgeInsets.only(top: statusBarHeight ),
-      decoration: new BoxDecoration(color: Colors.blue),
+      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+          colors: [
+            const Color(0xffb003C71),
+            const Color(0xffb0077CA),
+          ],
+            begin: const FractionalOffset(0.0, 0.0),
+            end: const FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp
+        )
+      ),
       child: new Center(
         child: new Text(
           title,
