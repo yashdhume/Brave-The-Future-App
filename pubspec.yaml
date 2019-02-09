@@ -28,6 +28,10 @@ dev_dependencies:
   firebase_auth: ^0.7.0
   cloud_firestore: ^0.8.2+3
 
+fonts:
+- family: Franklin Gothic Book Regular
+  fonts:
+  - asset: assets/fonts/Franklin Gothic Book Regular.ttf
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
