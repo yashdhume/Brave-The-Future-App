@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:brave_the_future/data/auth.dart';
 import 'package:brave_the_future/data/user.dart';
+import 'package:brave_the_future/data/building.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 Future<User> createUser(User user)async {
   await Firestore.instance.runTransaction((transaction) async{
@@ -28,3 +31,26 @@ Future<bool> updateUser(User user)async{
   });
   return true;
 }
+
+Future<List<Building>> getBuildings()async{
+  QuerySnapshot snapshot = await Firestore.instance.collection("Buildings").getDocuments();
+  List<Building> a = [];
+  await snapshot.documents.forEach((doc) async{
+    if (doc['thumbnail'] != null){
+      String thumb = await getImage(doc['thumbnail']);
+      a.add(Building.fromMapandImage(thumb, null, doc.data));
+    }else{
+      a.add(Building.fromMap(doc.data));
+    }
+  });
+  return a;
+}
+Future<String> getImage(String path) async{
+  return await FirebaseStorage.instance.ref().child(path).getDownloadURL();
+}
+/*
+get the link and throw it in here tada
+Image.network(
+  'https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/images/lake.jpg',
+)
+*/

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:brave_the_future/ui/ProjectPageUI/Building.dart';
+import 'package:brave_the_future/data/building.dart';
 import 'package:brave_the_future/ui/ProjectPageUI/GetBuildingInfo.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,7 +24,7 @@ class ProjectRow extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: new Image(
-                image: new AssetImage(building.image),
+                image: new NetworkImage(building.image),
                 //width: 200,
               ),
             )));
@@ -113,7 +113,7 @@ class ProjectRow extends StatelessWidget {
         ],
       ),
     );
-
+    print(building.image);
     return new GestureDetector(
         onTap: () => Navigator.push(
             context,

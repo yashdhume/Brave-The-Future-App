@@ -2,23 +2,29 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:brave_the_future/data/auth.dart';
 import 'package:brave_the_future/data/database.dart';
 import 'package:brave_the_future/data/user.dart';
+import 'package:brave_the_future/data/building.dart';
 class ViewModel extends Model{
   Auth auth;
   User user;
+  List<Building> buildings; 
   PageState userDefined = PageState.FAIL;
   void onSetUser(User value){
     this.user = value;
     notifyListeners();
   } 
+  Future<bool> onGetBuildings() async{
+    buildings = await getBuildings();
+    notifyListeners();
+  }
   void onSetUserDefined(PageState value){
     userDefined = value;
     notifyListeners();
   }
   void onSignOut(){
+    auth.signOut();
     auth = null;
     user = null;
     userDefined = PageState.FAIL;
-    auth.signOut();
     notifyListeners();
   }
   Future<void> checkNewUser() async{

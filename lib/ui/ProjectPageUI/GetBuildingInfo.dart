@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:brave_the_future/ui/ProjectPageUI/Building.dart';
+import 'package:brave_the_future/data/building.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BuildingInfoPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class BuildingInfoPage extends StatelessWidget {
       child: new Hero(
         tag: "building-hero-${building.id}",
         child: new Image(
-          image: new AssetImage(building.image),
+          image: NetworkImage(building.image),
           height: 92.0,
           width: 92.0,
         ),
@@ -57,10 +57,10 @@ class BuildingInfoPage extends StatelessWidget {
   }
   List<Widget> InfoSection(){
     return []
-    ..add(PlainCard(icon: IconTheme(data:IconThemeData(color:Colors.blue),child:Icon(FontAwesomeIcons.building)), text: building.squareMeter + 'Square Meters', trail: null))
+    ..add(PlainCard(icon: Icon(FontAwesomeIcons.building), text: building.squareMeter , trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.calendar), text: building.open + '', trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.map), text: building.location + '', trail: null))
-    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description + 'Square Meters', trail: null));
+    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description + 'Square Meters', trail: null, height: 500.0,),);
   }
   @override
   Widget build(BuildContext context) {  
@@ -118,13 +118,17 @@ class BuildingInfoPage extends StatelessWidget {
 }
 class PlainCard extends StatelessWidget{
   final Widget icon, trail;
+  final height;
   final String text;
-  PlainCard({this.icon, this.text, this.trail});
+  PlainCard({this.icon, this.text, this.trail, this.height});
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      height: 75,
-      padding: EdgeInsets.all(10),
+    return  Column(
+      children: <Widget> [
+      SizedBox(height: 7,),
+      Container(
+      height: this.height == null? 60:height,
+      padding: EdgeInsets.all(7),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -142,10 +146,16 @@ class PlainCard extends StatelessWidget{
         ]
       ),
       child: ListTile(
-        leading: this.icon,
+        leading: IconTheme(
+          data: IconThemeData(
+            color: Colors.blue,
+          ),
+          child: icon,
+        ),
         title: Text(this.text, style: TextStyle(color: Colors.black),),
         //trailing: Text('smth'),
-      )
+      ))
+      ]
     );
   }
 }
