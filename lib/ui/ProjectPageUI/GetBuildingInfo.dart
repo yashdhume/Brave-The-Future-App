@@ -60,7 +60,7 @@ class BuildingInfoPage extends StatelessWidget {
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.building), text: building.squareMeter , trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.calendar), text: building.open + '', trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.map), text: building.location + '', trail: null))
-    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description, trail: null, height: 500.0,),);
+    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description, trail: null, height: 560.0,),);
   }
   @override
   Widget build(BuildContext context) {  
