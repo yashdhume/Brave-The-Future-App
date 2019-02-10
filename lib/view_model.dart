@@ -35,7 +35,11 @@ class ViewModel extends Model{
       value = await createUser(User.newUser(auth.getUID()));
     }
     user = value;
-    onSetUserDefined(PageState.VAL);
+    userDefined = PageState.VAL;
+    print(userDefined);
+    notifyListeners();
+  }
+  void update(){
     notifyListeners();
   }
   void onSetAuth(Auth value){

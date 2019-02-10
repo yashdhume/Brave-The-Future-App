@@ -3,14 +3,8 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:brave_the_future/view_model.dart';
 class AccountPage extends StatelessWidget{
   List<Widget> accountHandler(ViewModel model){
-    switch(model.userDefined){
-      case PageState.UND:
-        return [loadingState()];
-      case PageState.VAL:
-        return loadedState(model);
-      case PageState.FAIL:
-        return [Text('Sorry an Error occured')];
-    }
+    if (model.user == null)  return [loadingState(model)];
+    return loadedState(model);
   }
   List<Widget> loadedState(ViewModel model){
     List<Widget> a =[];
@@ -21,7 +15,7 @@ class AccountPage extends StatelessWidget{
     ));
     return a;
   }
-  Widget loadingState(){
+  Widget loadingState(ViewModel model){
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,6 +27,7 @@ class AccountPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<ViewModel>(
+      rebuildOnChange: true,
       builder: (context, child, model) => Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
