@@ -6,26 +6,64 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:brave_the_future/view_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:brave_the_future/ui/ProjectPageUI/GradientAppBar.dart';
+import 'package:brave_the_future/ui/login_page.dart';
 
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
-  StaggeredTile.count(2, 4),
+
+  StaggeredTile.count(3, 4),
   StaggeredTile.count(2, 2),
+  StaggeredTile.count(1, 4),
   StaggeredTile.count(2, 1),
   StaggeredTile.count(2, 1),
 ];
 
 List<Widget> _tiles = <Widget>[
-  _Tile(Colors.blue, FontAwesomeIcons.building, "Building", ProjectPage()),
-  _Tile(Colors.green, FontAwesomeIcons.donate, "Donation", DonationPage()),
-  _Tile(Colors.pink, FontAwesomeIcons.star, "Story Board", StoryBoardView()),
-  _Tile(Colors.red, FontAwesomeIcons.signOutAlt, "Sign Out", null)
+  _Tile(Color(0xffb0077CA), FontAwesomeIcons.building, "Building", ProjectPage()),
+  _Tile(Color(0xffb84BD00), FontAwesomeIcons.donate, "Donation", DonationPage()),
+  _Tile(Color(0xffbC71566), FontAwesomeIcons.bookOpen, "Story Board", StoryBoardView()),
+  _Tile(Color(0xffbFFCD3A), FontAwesomeIcons.signInAlt, "Sign In", LoginPage()),
+  _Tile(Color(0xffb804693), FontAwesomeIcons.signOutAlt, "Sign Out", null),
 ];
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      //backgroundColor: Li,
+        appBar:  new PreferredSize(
+          child: new Container(
+            padding: new EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top
+            ),
+            child: new Padding(
+              padding: const EdgeInsets.only(
+                  left: 30.0,
+                  top: 20.0,
+                  bottom: 20.0
+              ),
+              child: new Image.asset("assets/BraveTheFuture_ThreeLines_Tagline.png"),
+            ),
+            decoration: new BoxDecoration(
+                gradient: new LinearGradient(
+                    colors: [
+                      const Color(0xffb003C71),
+                      const Color(0xffb0077CA),
+                    ]
+                ),
+                boxShadow: [
+                  new BoxShadow(
+                   // color: Colors.grey[500],
+                    blurRadius: 20.0,
+                    spreadRadius: 1.0,
+                  )
+                ]
+            ),
+          ),
+          preferredSize: new Size(
+              MediaQuery.of(context).size.width,
+              150.0
+          ),
+        ),
         body: Container(
             decoration: new BoxDecoration(
                 image: new DecorationImage(
@@ -33,8 +71,6 @@ class HomePage extends StatelessWidget {
                         "assets/refractionsSmall.png"),
                   fit: BoxFit.fill,
                 ),
-
-
             ),
             child: Padding(
                 padding: const EdgeInsets.only(top: 12.0),
