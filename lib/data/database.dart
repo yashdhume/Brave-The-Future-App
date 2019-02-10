@@ -38,7 +38,9 @@ Future<List<Building>> getBuildings()async{
   await snapshot.documents.forEach((doc) async{
     if (doc['thumbnail'] != null){
       String thumb = await getImage(doc['thumbnail']);
-      a.add(Building.fromMapandImage(thumb, null, doc.data));
+      String image; 
+      if (doc['image'] != null) image = await getImage(doc['image']);
+      a.add(Building.fromMapandImage(thumb, image, doc.data));
     }else{
       a.add(Building.fromMap(doc.data));
     }

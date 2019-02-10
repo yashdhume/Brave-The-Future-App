@@ -16,7 +16,8 @@ class Building{
       id: data['id'],
       location: data['location'],
       open: data['open'],
-      squareMeter: data['squareMeter']
+      squareMeter: data['squareMeter'],
+      description: data['description'],
     );
   }
   factory Building.fromMapandImage(String thumb, String img, Map<String, dynamic> data){
@@ -25,8 +26,10 @@ class Building{
       id: data['id'],
       location: data['location'],
       open: data['open'],
+      description: data['description'],
       squareMeter: data['squareMeter'],
       image: thumb,
+      imageBig: img,
     );
   }
 }

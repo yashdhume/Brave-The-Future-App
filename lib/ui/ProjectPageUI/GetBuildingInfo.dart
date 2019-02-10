@@ -12,7 +12,7 @@ class BuildingInfoPage extends StatelessWidget {
       child: new Hero(
         tag: "building-hero-${building.id}",
         child: new Image(
-          image: NetworkImage(building.image),
+          //image: NetworkImage(building.image),
           height: 92.0,
           width: 92.0,
         ),
@@ -22,7 +22,7 @@ class BuildingInfoPage extends StatelessWidget {
         return new Container(
           child: Hero(
             tag: "building-hero-${building.id}",
-          child: new Image.asset(building.imageBig,
+          child: new Image.network(building.imageBig,
             fit: BoxFit.cover,
             height: 300.0,
           ),
@@ -60,7 +60,7 @@ class BuildingInfoPage extends StatelessWidget {
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.building), text: building.squareMeter , trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.calendar), text: building.open + '', trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.map), text: building.location + '', trail: null))
-    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description + 'Square Meters', trail: null, height: 500.0,),);
+    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description, trail: null, height: 500.0,),);
   }
   @override
   Widget build(BuildContext context) {  
