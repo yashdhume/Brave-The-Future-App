@@ -62,7 +62,14 @@ class ViewModel extends Model{
     updateUser(user);
     notifyListeners();
   }
+  Future<void> onUpdateBuildingCoins(Building building, int increment)async{
+    buildings.firstWhere((test) => test == building).votes += increment; 
+    user.braveCoins -= increment;
+    await updateCoins(buildings.firstWhere((test) => test == building), user); 
+    notifyListeners();
+  }
 }
+
 enum PageState{
   UND, VAL, FAIL,
 }

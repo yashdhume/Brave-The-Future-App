@@ -36,7 +36,9 @@ class AccountPage extends StatelessWidget {
     return ScopedModelDescendant<ViewModel>(
         rebuildOnChange: true,
         builder: (context, child, model) => Scaffold(
-                body: CustomScrollView(
+                body: RefreshIndicator( 
+                  onRefresh:() => model.onRefreshAccount(),
+                  child: CustomScrollView(
               slivers: <Widget>[
                 SliverAppBar(
                   backgroundColor: Color(0xffb0077CA),
@@ -50,6 +52,6 @@ class AccountPage extends StatelessWidget {
                   delegate: SliverChildListDelegate(accountHandler(model)),
                 )
               ],
-            )));
+            ))));
   }
 }

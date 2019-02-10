@@ -2,7 +2,7 @@ class User{
   final String uid;
   final String name;
   double totalDonated;
-  final int braveCoins;
+  int braveCoins;
   String documentID;
   Map<String, int> votes;
   Map<String, double> donations;

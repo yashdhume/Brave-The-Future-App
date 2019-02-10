@@ -23,7 +23,9 @@ class ListOfProjectsBody extends StatelessWidget {
       builder: (context, child, model) => Expanded(
       child: new Container(
         color: new Color(0xffb333F48),
-        child: new CustomScrollView(
+        child: RefreshIndicator( 
+          onRefresh: () => model.onRefreshBuildings(),
+          child: new CustomScrollView(
           scrollDirection: Axis.vertical,
           slivers: <Widget>[
             new SliverPadding(
@@ -37,7 +39,7 @@ class ListOfProjectsBody extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      )),
     ));
   }
 }

@@ -40,9 +40,9 @@ Future<List<Building>> getBuildings()async{
       String thumb = await getImage(doc['thumbnail']);
       String image; 
       if (doc['image'] != null) image = await getImage(doc['image']);
-      a.add(Building.fromMapandImage(thumb, image, doc.data));
+      a.add(Building.fromMapandImage(thumb, image, doc.data, doc.documentID));
     }else{
-      a.add(Building.fromMap(doc.data));
+      a.add(Building.fromMap(doc.data, doc.documentID));
     }
   });
   return a;
@@ -50,6 +50,12 @@ Future<List<Building>> getBuildings()async{
 Future<String> getImage(String path) async{
   return await FirebaseStorage.instance.ref().child(path).getDownloadURL();
 }
+
+Future<void> updateCoins(Building building, User user) async {
+  await Firestore.instance.document('Users/' + user.documentID).updateData({"braveCoins": user.braveCoins});
+  print(building.docID);
+  await Firestore.instance.document('Buildings/' + building.docID).updateData({"coins": building.votes});
+} 
 /*
 get the link and throw it in here tada
 Image.network(

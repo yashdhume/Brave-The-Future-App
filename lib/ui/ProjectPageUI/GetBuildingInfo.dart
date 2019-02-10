@@ -61,8 +61,9 @@ class BuildingInfoPage extends StatelessWidget {
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.building), text: building.squareMeter , trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.calendar), text: building.open + '', trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.map), text: building.location + '', trail: null))
+    ..add(PlainCard(icon: Icon(FontAwesomeIcons.coins), text: building.votes.toString() + '', trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.info), text: building.description, trail: null, height: 560.0,),)
-    ..add(Stack(children: <Widget>[PlainCard(icon: Icon(FontAwesomeIcons.donate),text: "", trail: null,height: 75.0,),CounterCountaier(count: 0,)],));
+    ..add(Stack(children: <Widget>[PlainCard(icon: Icon(FontAwesomeIcons.donate),text: "", trail: null,height: 75.0,),CounterCountaier(count: building.votes,build:building)],));
   }
   @override
   Widget build(BuildContext context) {  
