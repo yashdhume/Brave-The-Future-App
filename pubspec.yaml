@@ -56,6 +56,10 @@ flutter:
     - assets/pictures/building1Full.jpg
     - assets/pictures/SIRC.png
     - assets/pictures/ACE.png
+    - assets/BraveTheFuture_TwoLines.jpg
+    - assets/BTF_Disrupted_Logo_Pink_BG.jpg
+    - assets/refractionsLarge.png
+    - assets/refractionsSmall.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

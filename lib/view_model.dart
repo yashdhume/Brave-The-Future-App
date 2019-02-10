@@ -15,10 +15,10 @@ class ViewModel extends Model{
     notifyListeners();
   }
   void onSignOut(){
+    auth.signOut();
     auth = null;
     user = null;
     userDefined = PageState.FAIL;
-    auth.signOut();
     notifyListeners();
   }
   Future<void> checkNewUser() async{
