@@ -6,7 +6,8 @@ class Building{
   final String imageBig;
   final String open;
   final String squareMeter;
-  const Building({this.id,this.name, this.location, this.image, this.imageBig,this.open, this.squareMeter} );
+  final String description;
+  const Building({this.id,this.name, this.location, this.image, this.imageBig,this.open, this.squareMeter, this.description} );
 
 }
 
@@ -18,7 +19,8 @@ List<Building> building =[
     image: "assets/pictures/building1.png",
     imageBig: "assets/pictures/building1Full.jpg",
     open: "First Phase of Construction",
-    squareMeter: "12,000 square metres"
+    squareMeter: "12,000 square metres",
+    description: 'YASH TOO FUCKIN OP',
   ),
   const Building(
     id:"2",

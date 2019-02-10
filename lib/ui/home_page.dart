@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brave_the_future/ui/ProjectPageUI/project_page.dart';
 import 'package:brave_the_future/ui/donationUI/donations.dart';
+import 'package:brave_the_future/ui/StoryBoard/StoryBoard.dart';
 class HomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,10 @@ class HomePage extends StatelessWidget{
           RaisedButton(
             child: Text('Donation Page'),
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => DonationPage())),
+          ),
+          RaisedButton(
+            child: Text('Story Board Page'),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => StoryBoard())),
           ),
         ],
       )),
