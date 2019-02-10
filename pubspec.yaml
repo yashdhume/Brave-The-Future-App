@@ -27,6 +27,7 @@ dev_dependencies:
   google_sign_in: ^3.3.0
   firebase_auth: ^0.7.0
   cloud_firestore: ^0.8.2+3
+  font_awesome_flutter: ^8.0.1
 
 fonts:
 - family: Franklin Gothic Book Regular 
@@ -51,6 +52,7 @@ flutter:
 
   assets:
     - assets/pictures/building1.png
+    - assets/pictures/building1Full.jpg
     - assets/pictures/SIRC.png
     - assets/pictures/ACE.png
 
