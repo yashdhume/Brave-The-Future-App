@@ -72,7 +72,6 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
         return ScopedModelDescendant<ViewModel>( 
           builder: (context, child, model){
-            print('RootPage Build Running');
             if (model.userDefined == PageState.FAIL){
              model.onSetAuth(widget.auth);
               model.checkNewUser();
