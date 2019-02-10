@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:brave_the_future/data/building.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:brave_the_future/ui/ProjectPageUI/Counter.dart';
 
 class BuildingInfoPage extends StatelessWidget {
   final Building building;
@@ -60,7 +61,8 @@ class BuildingInfoPage extends StatelessWidget {
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.building), text: building.squareMeter , trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.calendar), text: building.open + '', trail: null))
     ..add(PlainCard(icon: Icon(FontAwesomeIcons.map), text: building.location + '', trail: null))
-    ..add(PlainCard(icon: Icon(FontAwesomeIcons.pen), text: building.description, trail: null, height: 500.0,),);
+    ..add(PlainCard(icon: Icon(FontAwesomeIcons.info), text: building.description, trail: null, height: 560.0,),)
+    ..add(Stack(children: <Widget>[PlainCard(icon: Icon(FontAwesomeIcons.donate),text: "", trail: null,height: 75.0,),CounterCountaier(count: 0,)],));
   }
   @override
   Widget build(BuildContext context) {  

@@ -7,7 +7,7 @@ class ProjectPage extends StatelessWidget{
     return new Scaffold(
       body: new Column(
         children: <Widget>[
-          new GradientAppBar("List"),
+          new GradientAppBar("Buildings"),
           new ListOfProjectsBody(),
         ],
       ),

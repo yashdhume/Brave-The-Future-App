@@ -7,7 +7,9 @@ import 'package:brave_the_future/view_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:brave_the_future/ui/login_page.dart';
-
+import  'package:brave_the_future/ui/account_page.dart';
+import 'package:brave_the_future/ui/root_page.dart';
+import 'package:brave_the_future/data/auth.dart';
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
 
   StaggeredTile.count(3, 4),
@@ -15,14 +17,16 @@ List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
   StaggeredTile.count(1, 4),
   StaggeredTile.count(2, 1),
   StaggeredTile.count(2, 1),
+  StaggeredTile.count(4, 1),
 ];
 
 List<Widget> _tiles = <Widget>[
   _Tile(Color(0xffb0077CA), FontAwesomeIcons.building, "Building", ProjectPage()),
   _Tile(Color(0xffb84BD00), FontAwesomeIcons.donate, "Donation", DonationPage()),
   _Tile(Color(0xffbC71566), FontAwesomeIcons.bookOpen, "Story Board", StoryBoardView()),
-  _Tile(Color(0xffbFFCD3A), FontAwesomeIcons.signInAlt, "Sign In", LoginPage()),
+  _Tile(Color(0xffbFFCD3A), FontAwesomeIcons.signInAlt, "Sign In",  RootPage(auth: new Auth())),
   _Tile(Color(0xffb804693), FontAwesomeIcons.signOutAlt, "Sign Out", null),
+  _Tile(Color(0xffb41B6E6), FontAwesomeIcons.user, "Account Page", AccountPage()),
 ];
 
 class HomePage extends StatelessWidget {
@@ -52,7 +56,7 @@ class HomePage extends StatelessWidget {
                 ),
                 boxShadow: [
                   new BoxShadow(
-                   // color: Colors.grey[500],
+                    color: Colors.black,
                     blurRadius: 20.0,
                     spreadRadius: 1.0,
                   )
