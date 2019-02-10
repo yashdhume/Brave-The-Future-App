@@ -61,6 +61,28 @@ flutter:
     - assets/BTF_Disrupted_Logo_Pink_BG.jpg
     - assets/refractionsLarge.png
     - assets/refractionsSmall.png
+    - assets/pictures/Story/1.png
+    - assets/pictures/Story/2.png
+    - assets/pictures/Story/3.png
+    - assets/pictures/Story/4.png
+    - assets/pictures/Story/5.png
+    - assets/pictures/Story/6.png
+    - assets/pictures/Story/7.png
+    - assets/pictures/Story/8.png
+    - assets/pictures/Story/9.png
+    - assets/pictures/Story/10.png
+    - assets/pictures/Story/11.png
+    - assets/pictures/Story/12.png
+    - assets/pictures/Story/13.png
+    - assets/pictures/Story/14.png
+    - assets/pictures/Story/15.png
+    - assets/pictures/Story/16.png
+    - assets/pictures/Story/17.png
+    - assets/pictures/Story/18.png
+    - assets/pictures/Story/19.png
+    - assets/pictures/Story/20.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

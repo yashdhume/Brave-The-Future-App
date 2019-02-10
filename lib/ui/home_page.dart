@@ -18,7 +18,7 @@ List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
 List<Widget> _tiles = <Widget>[
   _Tile(Colors.blue, FontAwesomeIcons.building, "Building", ProjectPage()),
   _Tile(Colors.green, FontAwesomeIcons.donate, "Donation", DonationPage()),
-  _Tile(Colors.pink, FontAwesomeIcons.star, "Story Board", StoryBoard()),
+  _Tile(Colors.pink, FontAwesomeIcons.star, "Story Board", StoryBoardView()),
   _Tile(Colors.red, FontAwesomeIcons.signOutAlt, "Sign Out", null)
 ];
 
