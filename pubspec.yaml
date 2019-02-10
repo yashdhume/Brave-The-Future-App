@@ -29,7 +29,7 @@ dev_dependencies:
   cloud_firestore: ^0.8.2+3
 
 fonts:
-- family: Franklin
+- family: Franklin Gothic Book Regular 
   fonts:
   - asset: assets/fonts/Franklin Gothic Book Regular.ttf
 
