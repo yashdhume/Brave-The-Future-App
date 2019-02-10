@@ -17,11 +17,7 @@ class _DonationPage extends State<DonationPage>{
     state = PageState.UND;
   }
   void getUser(ViewModel model){
-    if (model.userDefined == PageState.UND){
-      state = PageState.UND;
-      return;
-    }
-    else if (model.userDefined == PageState.FAIL){
+    if (model.userDefined == PageState.FAIL){
       Auth auth = Auth();
       auth.getCurrentUser().then((uid){
         if (uid == null) {
@@ -34,6 +30,10 @@ class _DonationPage extends State<DonationPage>{
           return;
         }
       });
+    }
+    else if (model.user == null){
+      state = PageState.UND;
+      return;
     }
     else{
       state = PageState.VAL;
