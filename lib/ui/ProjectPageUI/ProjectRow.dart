@@ -10,7 +10,7 @@ class ProjectRow extends StatelessWidget {
   ProjectRow(this.building, {this.horizontal = true});
 
   ProjectRow.vertical(this.building) : horizontal = false;
-
+  
   Widget build(BuildContext context) {
     final buildingContainer = new Hero(
         tag: "building-hero-${building.id}",

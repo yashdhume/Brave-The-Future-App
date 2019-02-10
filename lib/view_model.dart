@@ -14,6 +14,13 @@ class ViewModel extends Model{
     userDefined = value;
     notifyListeners();
   }
+  void onSignOut(){
+    auth = null;
+    user = null;
+    userDefined = PageState.FAIL;
+    auth.signOut();
+    notifyListeners();
+  }
   Future<void> checkNewUser() async{
     onSetUserDefined(PageState.UND);
     User value = await getUser(this.auth);
@@ -22,7 +29,7 @@ class ViewModel extends Model{
       value = await createUser(User.newUser(auth.getUID()));
     }
     user = value;
-    userDefined = PageState.VAL;
+    onSetUserDefined(PageState.VAL);
     notifyListeners();
   }
   void onSetAuth(Auth value){

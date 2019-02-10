@@ -26,6 +26,7 @@ class _DonationPage extends State<DonationPage>{
       auth.getCurrentUser().then((uid){
         if (uid == null) {
           state = PageState.FAIL;
+          model.onSetUserDefined(PageState.FAIL);
           return;
         }else{
           model.onSetAuth(auth);
@@ -45,37 +46,20 @@ class _DonationPage extends State<DonationPage>{
       case PageState.UND:
         return Center(child: CircularProgressIndicator(),);
       case PageState.FAIL:
-        return NotSignedIn(context);
+        return Center(child:NotSignedIn(context));
       case PageState.VAL:
         return SignedIn(model);
     }
   }
   Widget NotSignedIn(BuildContext context){
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          RaisedButton(
-            onPressed: null,
-            child: Text('Sign Up!',
-            style:TextStyle(
-              color: Colors.white,
-            ),
-            ),
-            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
-          ),
-          SizedBox(height: 20,),
-          RaisedButton(
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RootPage(auth: new Auth()))),
-            child: Text('Sign In',
-            style: TextStyle(
-              color: Colors.white,
-            ),),
-            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
-          ),
-        ],
-      ),
-    );
+    return RaisedButton(
+        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RootPage(auth: new Auth()))),
+        child: Text('Sign In',
+        style: TextStyle(
+          color: Colors.white,
+        ),),
+        shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
+      );
   }
   Widget SignedIn(ViewModel model){
     return Column(
@@ -123,7 +107,7 @@ class _DonationPage extends State<DonationPage>{
       rebuildOnChange: true,
       builder: (context, child, model) => Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
