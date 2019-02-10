@@ -20,6 +20,7 @@ class ViewModel extends Model{
     userDefined = value;
     notifyListeners();
   }
+
   void onSignOut(){
     auth.signOut();
     auth = null;
@@ -38,6 +39,16 @@ class ViewModel extends Model{
     userDefined = PageState.VAL;
     print(userDefined);
     notifyListeners();
+  }
+  Future<bool> onRefreshBuildings()async{
+    buildings = await getBuildings();
+    notifyListeners();
+    return true;
+  }
+  Future<bool> onRefreshAccount()async{
+    user = await getUser(this.auth);
+    notifyListeners();
+    return true;
   }
   void update(){
     notifyListeners();
