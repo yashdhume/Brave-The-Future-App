@@ -1,16 +1,13 @@
-# brave_the_future
+# Brave The Future App
 
-A new Flutter project.
+🏆 1st Place Winner of UOIT Brave The Future Hackathon 2019 🏆 
 
-## Getting Started
+![alt text](Screenshots/SimulatorScreenShot5.png)
 
-This project is a starting point for a Flutter application.
+![alt text](Screenshots/SimulatorScreenShot1.png)
 
-A few resources to get you started if this is your first Flutter project:
+![alt text](Screenshots/SimulatorScreenShot2.png)
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+![alt text](Screenshots/SimulatorScreenShot3.png)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+![alt text](Screenshots/SimulatorScreenShot4.png)
